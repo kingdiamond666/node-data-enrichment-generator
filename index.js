@@ -4,7 +4,12 @@ const getRawBody  = require('raw-body');
 const crypto      = require('crypto');
 const axios       = require('axios');
 require('dotenv').config();
-const {SHOPIFYWEBHOOKKEY, PERSON_API_KEY, HASHING_ALGO} = process.env
+const {
+  SHOPIFYWEBHOOKKEY,
+  SHOPIFY_HMAC_METHOD,
+  PERSON_API_KEY,
+  HASHING_ALGO
+} = process.env
 
 
 
@@ -27,7 +32,7 @@ app.post('/webhooks/orders/create', async (req, res) => {
   console.log('🎉 We got an order!')
 
   // Compare the hmac to our own hash
-  const hmac = req.get('X-Shopify-Hmac-Sha256')
+  const hmac = req.get(SHOPIFY_HMAC_METHOD)
 
   // Use raw-body to get the body (buffer)
   const body = await getRawBody(req)
