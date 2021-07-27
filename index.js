@@ -53,7 +53,7 @@ app.post('/webhooks/orders/create', async (req, res) => {
     // TODO: Test this syntax otherwise switch back
     let order_results = axios.get(`https://api.peopledatalabs.com/v5/person/enrich`, {
       params:{
-        api_key: 'cb623559ca4248b9e38e24da4570e713c5f91a48cd5ae32331bda04d6f5c5e2a',
+        api_key: PERSON_API_KEY,
         email: email
       }
     })
