@@ -1,5 +1,6 @@
 .env
 data.js
+keys.json
 todos.txt
 # Logs
 logs
